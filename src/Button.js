@@ -2,17 +2,13 @@ import React, { PureComponent } from 'react';
 import { AppContext } from './AppContext';
 
 class Button extends PureComponent {
+  static contextType = AppContext;
+
   render() {
     return (
-      <AppContext.Consumer>
-        {
-          (props) => (
-            <div>
-              <button onClick={props.toggleLoggedState}>Change user state</button>
-            </div>
-          )
-        }
-      </AppContext.Consumer>
+      <div>
+        <button onClick={this.context.toggleLoggedState}>Change user state</button>
+      </div>
     )
   }
 }
